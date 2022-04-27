@@ -68,4 +68,4 @@ child(angelina,alexandra).
 child(athansins,angelina).
 child(athansins,albert).
 
-wife(X,Y):-child(Z,X),child(Z,Y),man(Y),woman(X),!.
+wife(X,Y):-child(Z,X),child(Z,Y),man(Y),woman(X).
