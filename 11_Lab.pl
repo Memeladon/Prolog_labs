@@ -123,3 +123,11 @@ fibU(N, X):-
     X is X1 + X2.
 
 %20
+fibD(0,X,LastX,PredLastX):- X is LastX + PredLastX.
+fibD(N,X,_,_):- N < 0, X is 1.
+fibD(N,X,LastX,PredLastX):-
+    NewN is N - 1,
+    NewLastX is LastX + PredLastX,
+    NewPredLastX is LastX,
+    fibDown(NewN,X,NewLastX,NewPredLastX).
+fibDown(N,X):- N1 is N - 2, fibDown(N1,X,1,0).
