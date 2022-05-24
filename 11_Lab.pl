@@ -113,3 +113,13 @@ prdONum(Num,Prd,Res):-
     NN2 is Num div 10,prdONum(NN2,Prd,Res).
 
 %19
+fibU(1,1):-!.
+fibU(2,1):-!.
+fibU(N, X):- 
+    N1 is N - 1,
+    N2 is N - 2, 
+    fibU(N1, X1), 
+    fibU(N2, X2), 
+    X is X1 + X2.
+
+%20
