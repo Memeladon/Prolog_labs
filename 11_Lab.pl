@@ -22,12 +22,10 @@ parent(anna,artem).
 parent(anna,andrey).
 parent(arthur,artem).
 parent(alina,andrey).
-
 parent(alena,alina).
 parent(alena,arseniy).
 parent(anton,alina).
 parent(anton,arseniy).
-
 parent(anastasia,achilley).
 parent(anastasia,alexandra).
 parent(anastasia,amalia).
@@ -37,10 +35,8 @@ parent(alex,amalia).
 
 parent(andrey,albert).
 parent(alina,albert).
-
 parent(arseniy,angelina).
 parent(alexandra,angelina).
-
 parent(albert,athansins).
 parent(angelina,athansins).
 
@@ -48,25 +44,20 @@ child(artem,anna).
 child(artem,arthur).
 child(andrey,anna).
 child(andrey,arthur).
-
 child(alina,alena).
 child(alina,anton).
 child(arseniy,alena).
 child(arseniy,anton).
-
 child(alexandra,anastasia).
 child(alexandra,alex).
 child(achiley,anastasia).
 child(achiley,alex).
 child(amalia,anastasia).
 child(amalia,alex).
-
 child(albert,andrey).
 child(albert,alina).
-
 child(angelina,arseniy).
 child(angelina,alexandra).
-
 child(athansins,angelina).
 child(athansins,albert).
 
@@ -104,3 +95,11 @@ minimal(Num,CurRes,Res):-
     NextNum2 is Num div 10, minimal(NextNum2,CurRes,Res).
 
 %17
+prdONum(0,99):-!.
+prdONum(Num,CurRes):-
+    NextNum is Num div 10,
+    prdONum(NextNum,R1),
+    R2 is Num mod 10,
+    (R2 < R1, R2 mod 5 =\= 0 -> CurRes is R2; CurRes is R1).
+
+%18
