@@ -95,3 +95,12 @@ minimal(Num,Res):-
 	(Res2<Res1, Res is Res2;Res is Res1). 
 
 %16
+minimal(Num,Res):- minimal(Num,9,Res).
+minimal(0,Res,Res):-!.
+minimal(Num,CurRes,Res):-
+    NextRes is Num mod 10, 
+    NextNum1 is Num div 10,
+    NextRes < CurRes,!,minimal(NextNum1,NextRes,Res); 
+    NextNum2 is Num div 10, minimal(NextNum2,CurRes,Res).
+
+%17
