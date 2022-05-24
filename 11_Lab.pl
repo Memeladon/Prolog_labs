@@ -103,3 +103,13 @@ prdONum(Num,CurRes):-
     (R2 < R1, R2 mod 5 =\= 0 -> CurRes is R2; CurRes is R1).
 
 %18
+prdONum(Num,Res):-prdONum(Num,1,Res).
+prdONum(0,S,S):-!.
+prdONum(Num,Prd,Res):-
+    Der is Num mod 10,
+    Der mod 5 =\= 0, Prd1 is (Prd * Der),
+    NN1 is Num div 10,
+    prdONum(NN1,Prd1,Res);
+    NN2 is Num div 10,prdONum(NN2,Prd,Res).
+
+%19
