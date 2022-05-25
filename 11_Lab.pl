@@ -80,9 +80,9 @@ grand_ma_and_da(X,Y):-grand_da(Y,X),woman(X).
 %15
 minimal(0,9):-!.
 minimal(Num,Res):-
-	NumNext is Num div 10,
+	NumNext is Num div 10,	
+    	Res2 is Num mod 10,
 	minimal(NumNext,Res1),
-	Res2 is X mod 10,
 	(Res2<Res1, Res is Res2;Res is Res1). 
 
 %16
